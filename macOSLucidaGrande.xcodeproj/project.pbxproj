@@ -10,6 +10,7 @@
 		560E941A1D84F29C0073B846 /* applyDiff_10_10.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94171D84ECD40073B846 /* applyDiff_10_10.patch */; };
 		560E941B1D84F29C0073B846 /* applyDiff_10_11.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94181D84ECD40073B846 /* applyDiff_10_11.patch */; };
 		560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94191D84ECD40073B846 /* applyDiff_10_12.patch */; };
+		562A09FE1D85C1D500A98087 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562A09FD1D85C1D500A98087 /* AppKit.framework */; };
 		56939B461D84BEDA003D8A05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56939B451D84BEDA003D8A05 /* AppDelegate.m */; };
 		56939B491D84BEDA003D8A05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56939B481D84BEDA003D8A05 /* main.m */; };
 		56939B4B1D84BEDA003D8A05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56939B4A1D84BEDA003D8A05 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		560E94171D84ECD40073B846 /* applyDiff_10_10.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_10.patch; sourceTree = "<group>"; };
 		560E94181D84ECD40073B846 /* applyDiff_10_11.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_11.patch; sourceTree = "<group>"; };
 		560E94191D84ECD40073B846 /* applyDiff_10_12.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_12.patch; sourceTree = "<group>"; };
+		562A09FD1D85C1D500A98087 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		56939B411D84BEDA003D8A05 /* macOSLucidaGrande.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOSLucidaGrande.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56939B441D84BEDA003D8A05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		56939B451D84BEDA003D8A05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,17 +41,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562A09FE1D85C1D500A98087 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		562A09FC1D85C1D500A98087 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				562A09FD1D85C1D500A98087 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		56939B381D84BEDA003D8A05 = {
 			isa = PBXGroup;
 			children = (
 				56939B431D84BEDA003D8A05 /* macOSLucidaGrande */,
 				56939B421D84BEDA003D8A05 /* Products */,
+				562A09FC1D85C1D500A98087 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +131,7 @@
 				TargetAttributes = {
 					56939B401D84BEDA003D8A05 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = V2KAG42TP2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -273,7 +286,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V2KAG42TP2;
 				INFOPLIST_FILE = macOSLucidaGrande/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -287,7 +302,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V2KAG42TP2;
 				INFOPLIST_FILE = macOSLucidaGrande/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

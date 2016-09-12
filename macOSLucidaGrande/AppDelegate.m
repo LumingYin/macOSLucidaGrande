@@ -18,11 +18,13 @@
     NSString *yosemitePatchPath;
     BOOL alreadyCheckedUpdate;
 }
+@property (weak) IBOutlet NSView *_mainView;
 @property (weak) IBOutlet NSTextField *currentFontHeading;
 @property (weak) IBOutlet NSTextField *currentFontName;
 @property (weak) IBOutlet NSButton *callToActionBtn;
 @property (weak) IBOutlet NSTextField *systemFontChangedLabel;
 @property (weak) IBOutlet NSTextField *previewParagraph;
+@property (weak) IBOutlet NSVisualEffectView *visualEffectView;
 @end
 
 @implementation AppDelegate
@@ -32,6 +34,11 @@
     sierraPatchPath = @"/Library/Fonts/LGUI_Regular_mod.TTF";
     elCapitanPatchPath = @"/Library/Fonts/LucidaGrande_modsysfontelc.ttc";
     yosemitePatchPath = @"/Library/Fonts/LucidaGrande_modsysfontyos.ttc";
+    
+    [self.window.contentView setWantsLayer:YES];
+    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
+    self.window.titlebarAppearsTransparent = YES;
+
     //  Checks if system version is newer than macOS 10.12. If not, alerts the user about incompatibility and exits.
     NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
     NSString* minor = [NSString stringWithFormat:@"%ld", (long)version.minorVersion];
