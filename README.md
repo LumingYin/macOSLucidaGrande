@@ -15,6 +15,7 @@ As the name suggests, this is a small utility to set Lucida Grande as your Mac's
 - Not yet signed with an Apple Developer certificate
 - Only Regular font weight is supported in macOS Sierra (10.12)
 - Truncated text may overlap in Safari and Firefox in macOS Sierra (10.12) and OS X El Capitan (10.11)
+- When typing in a password input field in the OS, like iTunes account, there is no * sign appearing when typing a character. The password is typed completely and it is accepted, but password field appears blank before submission (Issue #2).
 
 ### Special Thanks:
 - **[Alexander Schreiber](https://github.com/schreiberstein)** for creating the amazing origonal [LucidaGrandeYosemite](https://github.com/schreiberstein/lucidagrandeyosemite) and [LucidaGrandeElCapitan](https://github.com/schreiberstein/lucidagrandeelcapitan). Without his origonal project and his great take on creating diff'ed font patches, this project wouldn't have been possible
