@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NSWindow+AccessoryView.h"
+#import "NSData+MD5.h"
 
 
 @interface AppDelegate () {
@@ -16,6 +17,7 @@
     NSString *sierraPatchPath;
     NSString *elCapitanPatchPath;
     NSString *yosemitePatchPath;
+    NSString *hashSum;
     BOOL alreadyCheckedUpdate;
 }
 @property (weak) IBOutlet NSView *_mainView;
@@ -38,7 +40,10 @@
     [self.window.contentView setWantsLayer:YES];
     self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
     self.window.titlebarAppearsTransparent = YES;
-
+    
+    NSData *nsData = [NSData dataWithContentsOfFile:sierraPatchPath];
+    hashSum = [nsData MD5];
+    
     //  Checks if system version is newer than macOS 10.12. If not, alerts the user about incompatibility and exits.
     NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
     NSString* minor = [NSString stringWithFormat:@"%ld", (long)version.minorVersion];
@@ -62,12 +67,12 @@
         [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
     } else {
         [self refreshStatus];
-        [self checkForUpdates];
-        alreadyCheckedUpdate = YES;
     }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [self checkForUpdates];
+    alreadyCheckedUpdate = YES;
 }
 
 
@@ -115,6 +120,23 @@
     BOOL elCapitanPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:elCapitanPatchPath];
     BOOL yosemitePatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:yosemitePatchPath];
     if (versionNumber == 12){
+        if (sierraPatchPresent && ![hashSum isEqual: @"aeb6c59d1c4847f1bea4172fe5f93f14"]) {
+            [[NSFileManager defaultManager] removeItemAtPath:sierraPatchPath error:nil];
+            NSString *nameOfPatchFile = [NSString stringWithFormat:@"applyDiff_10_%d", versionNumber];
+            NSString *diffPath = [[NSBundle mainBundle] pathForResource:nameOfPatchFile ofType:@"patch"];
+            // Copies the Lucida Grande font over to the desired installation location
+            NSTask *task = [[NSTask alloc] init];
+            task.launchPath = @"/usr/bin/bspatch";
+            task.arguments = @[@"/System/Library/Fonts/LucidaGrande.ttc", sierraPatchPath, diffPath];
+            [task launch];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"OK"];
+            [alert setMessageText:@"A newer version of Lucida Grande has been applied."];
+            [alert setInformativeText:@"A newer version of Lucida Grande has been applied to your Mac. Bold system font should also be in Lucida Grande now."];
+            [alert setAlertStyle:NSAlertStyleWarning];
+            [alert runModal];
+
+        }
         if (elCapitanPatchPresent) {
             [[NSFileManager defaultManager] removeItemAtPath:elCapitanPatchPath error:nil];
         }
