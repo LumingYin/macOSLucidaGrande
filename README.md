@@ -4,10 +4,7 @@ As the name suggests, this is a small utility to set Lucida Grande as your Mac's
 - Easily switch between Lucida Grande and Helvetica Neue as your Mac's system font on OS X Yosemite (10.10)
 - Simple and safe, with no administrator privillage required
 
-**[Download macOSLucidaGrande](https://github.com/HiKay/macOSLucidaGrande/releases/download/2016.12.20/macOSLucidaGrande_2016_12_20.zip)**
-
-
-**[What should I do If I am unable to open macOSLucidaGrande?](FAQ.md)**
+**[Download macOSLucidaGrande](https://github.com/LumingYin/macOSLucidaGrande/releases/download/2017.07.12/macOSLucidaGrande_2017_07_12.zip)**
 
 ![](https://raw.githubusercontent.com/HiKay/macOSLucidaGrande/master/Screenshot/Screenshot.png "Screenshot of macOSLucidaGrande")
 

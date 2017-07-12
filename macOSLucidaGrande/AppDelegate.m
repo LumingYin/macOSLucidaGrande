@@ -269,7 +269,7 @@
 
 - (void)checkForUpdates {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSURL *URL = [NSURL URLWithString:@"https://hikay.github.io/app/lucidagrande/latestBuild.txt"];
+    NSURL *URL = [NSURL URLWithString:@"http://luming.ga/app/lucidagrande/latestBuild.txt"];
     NSError *error;
     NSString *latestBuildNumberRaw = [[NSString alloc]
                                       initWithContentsOfURL:URL
@@ -296,7 +296,7 @@
         [alert setInformativeText:messageText];
         [alert setAlertStyle:NSAlertStyleWarning];
         [alert runModal];
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"https://hikay.github.io/app/lucidagrande/index.html"]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"http://luming.ga/app/lucidagrande/index.html"]];
     } else if (alreadyCheckedUpdate) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];

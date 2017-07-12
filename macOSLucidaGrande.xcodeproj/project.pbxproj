@@ -140,7 +140,7 @@
 				TargetAttributes = {
 					56939B401D84BEDA003D8A05 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = NFXP8HZZ2G;
+						DevelopmentTeam = 54362BT7G2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -296,9 +296,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NFXP8HZZ2G;
+				DEVELOPMENT_TEAM = 54362BT7G2;
 				INFOPLIST_FILE = macOSLucidaGrande/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -309,6 +309,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hikay.macOSLucidaGrande;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -316,9 +317,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NFXP8HZZ2G;
+				DEVELOPMENT_TEAM = 54362BT7G2;
 				INFOPLIST_FILE = macOSLucidaGrande/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -329,6 +330,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hikay.macOSLucidaGrande;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
