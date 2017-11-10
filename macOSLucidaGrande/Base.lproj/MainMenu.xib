@@ -114,12 +114,12 @@
         </menu>
         <window title="macOSLucidaGrande" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="352"/>
+            <rect key="contentRect" x="335" y="390" width="478" height="352"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
-            <value key="minSize" type="size" width="480" height="352"/>
-            <value key="maxSize" type="size" width="480" height="352"/>
+            <value key="minSize" type="size" width="478" height="352"/>
+            <value key="maxSize" type="size" width="478" height="352"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="352"/>
+                <rect key="frame" x="0.0" y="0.0" width="478" height="352"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box misplaced="YES" boxType="custom" cornerRadius="4" title="Box" id="Z9o-Yp-Fco">
@@ -165,7 +165,7 @@
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="S4h-TO-lqw">
                         <rect key="frame" x="0.0" y="-6" width="480" height="272"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="preview_sf" id="rBv-U3-TUM"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="preview_sf" id="rBv-U3-TUM"/>
                     </imageView>
                     <box hidden="YES" misplaced="YES" boxType="custom" borderWidth="0.0" cornerRadius="12" id="eMk-FY-sj5">
                         <rect key="frame" x="203" y="59" width="237" height="34"/>
@@ -205,7 +205,7 @@
     </objects>
     <resources>
         <image name="applyButton" width="89" height="89"/>
-        <image name="preview_sf" width="1420" height="800"/>
+        <image name="preview_sf" width="480" height="272"/>
         <image name="text" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>
