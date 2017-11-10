@@ -29,6 +29,7 @@
 //@property (weak) IBOutlet NSTextField *previewParagraph;
 @property (weak) IBOutlet NSSegmentedControl *fontSelector;
 @property (weak) IBOutlet NSImageView *previewImage;
+@property (weak) IBOutlet NSTextField *fontChangedTypeLabel;
 @end
 
 @implementation AppDelegate
@@ -53,6 +54,10 @@
     _currentFontHeading.hidden = NO;
     if (versionNumber == 10) {
         [self.fontSelector setLabel:@"Helvetica Neue" forSegment:0];
+    }
+    if (versionNumber > 10) {
+        [_fontChangedTypeLabel setFont:[NSFont systemFontOfSize:11 weight:NSFontWeightMedium]];
+
     }
     if (versionNumber > 13) {
         // Alerts user about incompatibility

@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -19,7 +18,7 @@
             <connections>
                 <outlet property="_mainView" destination="EiT-Mj-1SZ" id="zw3-27-zFQ"/>
                 <outlet property="callToActionBtn" destination="HKN-7f-EFy" id="J8u-gE-uDs"/>
-                <outlet property="currentFontHeading" destination="vVR-bn-BBz" id="hl1-uW-06H"/>
+                <outlet property="fontChangedTypeLabel" destination="HnL-ab-ZuH" id="KJS-EQ-zRW"/>
                 <outlet property="fontSelector" destination="ANd-DD-Ysj" id="7vi-B5-mu3"/>
                 <outlet property="previewImage" destination="S4h-TO-lqw" id="IXg-Mi-l2I"/>
                 <outlet property="systemFontChangedLabel" destination="eMk-FY-sj5" id="eIF-eJ-J3W"/>
@@ -130,15 +129,6 @@
                             <rect key="frame" x="1" y="1" width="494" height="112"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="vVR-bn-BBz">
-                                    <rect key="frame" x="25" y="14" width="204" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Preview and Apply" id="HKb-FT-JJm">
-                                        <font key="font" metaFont="systemBold" size="23"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
                                 <segmentedControl verticalHuggingPriority="750" misplaced="YES" id="ANd-DD-Ysj">
                                     <rect key="frame" x="246" y="16" width="228" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -153,6 +143,15 @@
                                         <action selector="segmentedControlChanged:" target="Voe-Tx-rLC" id="GM2-G9-t1R"/>
                                     </connections>
                                 </segmentedControl>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="yKf-GR-0N6">
+                                    <rect key="frame" x="26" y="13" width="176" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="System Font" id="IdS-x4-rtp">
+                                        <font key="font" metaFont="systemBold" size="23"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                         </view>
                         <color key="borderColor" red="0.79469384517766495" green="0.79469384517766495" blue="0.79469384517766495" alpha="0.65780179794520544" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,7 +173,7 @@
                                     <rect key="frame" x="-2" y="2" width="241" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Font change takes effect after restart." id="PJU-pD-zAv">
-                                        <font key="font" metaFont="systemMedium" size="11"/>
+                                        <font key="font" metaFont="system" size="11"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
