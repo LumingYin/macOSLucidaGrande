@@ -20,7 +20,6 @@
 		56939B491D84BEDA003D8A05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56939B481D84BEDA003D8A05 /* main.m */; };
 		56939B4B1D84BEDA003D8A05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56939B4A1D84BEDA003D8A05 /* Assets.xcassets */; };
 		56939B4E1D84BEDA003D8A05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56939B4C1D84BEDA003D8A05 /* MainMenu.xib */; };
-		56B6C6EF1D850EE4000E99E3 /* NSWindow+AccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B6C6EE1D850EE4000E99E3 /* NSWindow+AccessoryView.m */; };
 		56BB4A591D84DE2100B4A7CE /* macOSLucidaGrande.icns in Resources */ = {isa = PBXBuildFile; fileRef = 56BB4A581D84DE2100B4A7CE /* macOSLucidaGrande.icns */; };
 		56DEB66B1E0973180049D950 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DEB66A1E0973180049D950 /* NSData+MD5.m */; };
 /* End PBXBuildFile section */
@@ -43,8 +42,6 @@
 		56939B4A1D84BEDA003D8A05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56939B4D1D84BEDA003D8A05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		56939B4F1D84BEDA003D8A05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56B6C6ED1D850EE4000E99E3 /* NSWindow+AccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+AccessoryView.h"; sourceTree = "<group>"; };
-		56B6C6EE1D850EE4000E99E3 /* NSWindow+AccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+AccessoryView.m"; sourceTree = "<group>"; };
 		56BB4A581D84DE2100B4A7CE /* macOSLucidaGrande.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOSLucidaGrande.icns; sourceTree = "<group>"; };
 		56DEB6671E0972D50049D950 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		56DEB6691E0973180049D950 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
@@ -104,8 +101,6 @@
 				3C23D0D91FB62CDA0065B863 /* preview_sf.jpg */,
 				56939B441D84BEDA003D8A05 /* AppDelegate.h */,
 				56939B451D84BEDA003D8A05 /* AppDelegate.m */,
-				56B6C6ED1D850EE4000E99E3 /* NSWindow+AccessoryView.h */,
-				56B6C6EE1D850EE4000E99E3 /* NSWindow+AccessoryView.m */,
 				56DEB6691E0973180049D950 /* NSData+MD5.h */,
 				56DEB66A1E0973180049D950 /* NSData+MD5.m */,
 				3C23D0D51FB6278C0065B863 /* MainWindowController.h */,
@@ -206,7 +201,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C23D0D71FB6278D0065B863 /* MainWindowController.m in Sources */,
-				56B6C6EF1D850EE4000E99E3 /* NSWindow+AccessoryView.m in Sources */,
 				56939B491D84BEDA003D8A05 /* main.m in Sources */,
 				56939B461D84BEDA003D8A05 /* AppDelegate.m in Sources */,
 				56DEB66B1E0973180049D950 /* NSData+MD5.m in Sources */,

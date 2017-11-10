@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "NSWindow+AccessoryView.h"
 #import "NSData+MD5.h"
 
 
@@ -22,11 +21,8 @@
     BOOL alreadyCheckedUpdate;
 }
 @property (weak) IBOutlet NSView *_mainView;
-@property (weak) IBOutlet NSTextField *currentFontHeading;
-//@property (weak) IBOutlet NSTextField *currentFontName;
 @property (weak) IBOutlet NSButton *callToActionBtn;
 @property (weak) IBOutlet NSBox *systemFontChangedLabel;
-//@property (weak) IBOutlet NSTextField *previewParagraph;
 @property (weak) IBOutlet NSSegmentedControl *fontSelector;
 @property (weak) IBOutlet NSImageView *previewImage;
 @property (weak) IBOutlet NSTextField *fontChangedTypeLabel;
@@ -41,7 +37,6 @@
     elCapitanPatchPath = @"/Library/Fonts/LucidaGrande_modsysfontelc.ttc";
     yosemitePatchPath = @"/Library/Fonts/LucidaGrande_modsysfontyos.ttc";
     [self.window.contentView setWantsLayer:YES];
-//    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
     self.window.titlebarAppearsTransparent = YES;
     
     NSData *nsData = [NSData dataWithContentsOfFile:sierraPatchPath];
@@ -51,7 +46,6 @@
     NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
     NSString* minor = [NSString stringWithFormat:@"%ld", (long)version.minorVersion];
     versionNumber = [minor intValue];
-    _currentFontHeading.hidden = NO;
     if (versionNumber == 10) {
         [self.fontSelector setLabel:@"Helvetica Neue" forSegment:0];
     }
@@ -260,11 +254,6 @@
         
         // Refresh main UI to reflect current system typeface setting
         // We do not use [self refreshStatus]; in this case because unless sleep is used, [self refreshStatus]; executes before the bash task completes, meaning the status won't be correctly refreshed
-        
-//        _currentFontName.stringValue = @"Lucida Grande";
-//        [_currentFontName setFont:[NSFont fontWithName:@".Lucida Grande UI" size:19]];
-//        [_previewParagraph setFont:[NSFont fontWithName:@".Lucida Grande UI" size:13]];
-//        [self refreshStatus];
 
         _systemFontChangedLabel.hidden = NO;
         _callToActionBtn.hidden = YES;
@@ -302,13 +291,13 @@
     
     if ([latestBuildNumber compare:currentBuildNumber options:NSNumericSearch] == NSOrderedDescending) {        
         if (!alreadyCheckedUpdate) {
-        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 115, 5)];
+        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(360, 328, 115, 20)];
         [button setBezelStyle:NSBezelStyleRoundRect];
             
         button.title = @"Update Available";
         [button setAction:@selector(checkForUpdates:)];
             
-        [self.window addViewToTitleBar:button atXPosition:self.window.frame.size.width - button.frame.size.width - 10];
+        [self._mainView addSubview:button];
         }
         
         NSAlert *alert = [[NSAlert alloc] init];
