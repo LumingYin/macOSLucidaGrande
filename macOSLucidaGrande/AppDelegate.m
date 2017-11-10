@@ -64,8 +64,8 @@
         [alert setAlertStyle:NSAlertStyleWarning];
         [alert runModal];
         // Checks for update
-        [self checkForUpdates];
-        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"http://luming.ga/app/lucidagrande/index.html"]];
+        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.5];
     } else {
         [self refreshStatus];
     }
