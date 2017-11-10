@@ -144,7 +144,7 @@
                                     </connections>
                                 </segmentedControl>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="yKf-GR-0N6">
-                                    <rect key="frame" x="26" y="13" width="176" height="32"/>
+                                    <rect key="frame" x="53" y="12" width="176" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="System Font" id="IdS-x4-rtp">
                                         <font key="font" metaFont="systemBold" size="23"/>
@@ -152,6 +152,11 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KiF-Lb-0rp">
+                                    <rect key="frame" x="16" y="12" width="38" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="text" id="4G4-E3-b6Q"/>
+                                </imageView>
                             </subviews>
                         </view>
                         <color key="borderColor" red="0.79469384517766495" green="0.79469384517766495" blue="0.79469384517766495" alpha="0.65780179794520544" colorSpace="custom" customColorSpace="sRGB"/>
@@ -201,5 +206,6 @@
     <resources>
         <image name="applyButton" width="89" height="89"/>
         <image name="preview_sf" width="1420" height="800"/>
+        <image name="text" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>

@@ -12,6 +12,7 @@
 		3C23D0DA1FB62CDB0065B863 /* preview_lg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0D81FB62CDA0065B863 /* preview_lg.jpg */; };
 		3C23D0DB1FB62CDB0065B863 /* preview_sf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0D91FB62CDA0065B863 /* preview_sf.jpg */; };
 		3C23D0DD1FB633870065B863 /* applyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0DC1FB633870065B863 /* applyButton.png */; };
+		3C23D0E11FB639440065B863 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0E01FB639440065B863 /* text.png */; };
 		560E941A1D84F29C0073B846 /* applyDiff_10_10.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94171D84ECD40073B846 /* applyDiff_10_10.patch */; };
 		560E941B1D84F29C0073B846 /* applyDiff_10_11.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94181D84ECD40073B846 /* applyDiff_10_11.patch */; };
 		560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94191D84ECD40073B846 /* applyDiff_10_12.patch */; };
@@ -31,6 +32,7 @@
 		3C23D0D81FB62CDA0065B863 /* preview_lg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview_lg.jpg; sourceTree = "<group>"; };
 		3C23D0D91FB62CDA0065B863 /* preview_sf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview_sf.jpg; sourceTree = "<group>"; };
 		3C23D0DC1FB633870065B863 /* applyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applyButton.png; sourceTree = "<group>"; };
+		3C23D0E01FB639440065B863 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		560E94171D84ECD40073B846 /* applyDiff_10_10.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_10.patch; sourceTree = "<group>"; };
 		560E94181D84ECD40073B846 /* applyDiff_10_11.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_11.patch; sourceTree = "<group>"; };
 		560E94191D84ECD40073B846 /* applyDiff_10_12.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_12.patch; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		56939B431D84BEDA003D8A05 /* macOSLucidaGrande */ = {
 			isa = PBXGroup;
 			children = (
+				3C23D0E01FB639440065B863 /* text.png */,
 				3C23D0DC1FB633870065B863 /* applyButton.png */,
 				560E94171D84ECD40073B846 /* applyDiff_10_10.patch */,
 				560E94181D84ECD40073B846 /* applyDiff_10_11.patch */,
@@ -187,6 +190,7 @@
 				3C23D0DD1FB633870065B863 /* applyButton.png in Resources */,
 				560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */,
 				56939B4B1D84BEDA003D8A05 /* Assets.xcassets in Resources */,
+				3C23D0E11FB639440065B863 /* text.png in Resources */,
 				3C23D0D41FB6256A0065B863 /* applyDiff_10_13.patch in Resources */,
 				56939B4E1D84BEDA003D8A05 /* MainMenu.xib in Resources */,
 				56BB4A591D84DE2100B4A7CE /* macOSLucidaGrande.icns in Resources */,
