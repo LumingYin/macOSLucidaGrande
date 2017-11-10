@@ -57,7 +57,6 @@
     }
     if (versionNumber > 10) {
         [_fontChangedTypeLabel setFont:[NSFont systemFontOfSize:11 weight:NSFontWeightMedium]];
-
     }
     if (versionNumber > 13) {
         // Alerts user about incompatibility
