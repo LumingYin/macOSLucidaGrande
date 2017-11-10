@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C23D0D41FB6256A0065B863 /* applyDiff_10_13.patch in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0D31FB625690065B863 /* applyDiff_10_13.patch */; };
 		560E941A1D84F29C0073B846 /* applyDiff_10_10.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94171D84ECD40073B846 /* applyDiff_10_10.patch */; };
 		560E941B1D84F29C0073B846 /* applyDiff_10_11.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94181D84ECD40073B846 /* applyDiff_10_11.patch */; };
 		560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94191D84ECD40073B846 /* applyDiff_10_12.patch */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C23D0D31FB625690065B863 /* applyDiff_10_13.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_13.patch; sourceTree = "<group>"; };
 		560E94171D84ECD40073B846 /* applyDiff_10_10.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_10.patch; sourceTree = "<group>"; };
 		560E94181D84ECD40073B846 /* applyDiff_10_11.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_11.patch; sourceTree = "<group>"; };
 		560E94191D84ECD40073B846 /* applyDiff_10_12.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_12.patch; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				560E94171D84ECD40073B846 /* applyDiff_10_10.patch */,
 				560E94181D84ECD40073B846 /* applyDiff_10_11.patch */,
 				560E94191D84ECD40073B846 /* applyDiff_10_12.patch */,
+				3C23D0D31FB625690065B863 /* applyDiff_10_13.patch */,
 				56BB4A581D84DE2100B4A7CE /* macOSLucidaGrande.icns */,
 				56939B441D84BEDA003D8A05 /* AppDelegate.h */,
 				56939B451D84BEDA003D8A05 /* AppDelegate.m */,
@@ -172,6 +175,7 @@
 				560E941B1D84F29C0073B846 /* applyDiff_10_11.patch in Resources */,
 				560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */,
 				56939B4B1D84BEDA003D8A05 /* Assets.xcassets in Resources */,
+				3C23D0D41FB6256A0065B863 /* applyDiff_10_13.patch in Resources */,
 				56939B4E1D84BEDA003D8A05 /* MainMenu.xib in Resources */,
 				56BB4A591D84DE2100B4A7CE /* macOSLucidaGrande.icns in Resources */,
 			);
