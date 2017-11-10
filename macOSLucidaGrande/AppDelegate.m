@@ -23,11 +23,12 @@
 }
 @property (weak) IBOutlet NSView *_mainView;
 @property (weak) IBOutlet NSTextField *currentFontHeading;
-@property (weak) IBOutlet NSTextField *currentFontName;
+//@property (weak) IBOutlet NSTextField *currentFontName;
 @property (weak) IBOutlet NSButton *callToActionBtn;
-@property (weak) IBOutlet NSTextField *systemFontChangedLabel;
-@property (weak) IBOutlet NSTextField *previewParagraph;
-@property (weak) IBOutlet NSVisualEffectView *visualEffectView;
+@property (weak) IBOutlet NSBox *systemFontChangedLabel;
+//@property (weak) IBOutlet NSTextField *previewParagraph;
+@property (weak) IBOutlet NSSegmentedControl *fontSelector;
+@property (weak) IBOutlet NSImageView *previewImage;
 @end
 
 @implementation AppDelegate
@@ -39,7 +40,7 @@
     elCapitanPatchPath = @"/Library/Fonts/LucidaGrande_modsysfontelc.ttc";
     yosemitePatchPath = @"/Library/Fonts/LucidaGrande_modsysfontyos.ttc";
     [self.window.contentView setWantsLayer:YES];
-    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
+//    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
     self.window.titlebarAppearsTransparent = YES;
     
     NSData *nsData = [NSData dataWithContentsOfFile:sierraPatchPath];
@@ -49,14 +50,14 @@
     NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
     NSString* minor = [NSString stringWithFormat:@"%ld", (long)version.minorVersion];
     versionNumber = [minor intValue];
-    if (versionNumber > 10) {
-        [_currentFontHeading setFont:[NSFont systemFontOfSize:33 weight:NSFontWeightBlack]];
-    }
     _currentFontHeading.hidden = NO;
+    if (versionNumber == 10) {
+        [self.fontSelector setLabel:@"Helvetica Neue" forSegment:0];
+    }
     if (versionNumber > 13) {
         // Alerts user about incompatibility
-        _currentFontName.stringValue = @"Unavailable";
-        _currentFontName.hidden = NO;
+        self.fontSelector.enabled = NO;
+        self.callToActionBtn.enabled = NO;
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Check for Updates"];
         [alert setMessageText:@"Incompatible with your macOS installation."];
@@ -76,55 +77,56 @@
     alreadyCheckedUpdate = YES;
 }
 
+- (void)showLGPreview {
+    [_fontSelector setSelected:NO forSegment:0];
+    [_fontSelector setSelected:YES forSegment:1];
+    _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+}
+
+- (void)showSFPreview {
+    [_fontSelector setSelected:NO forSegment:1];
+    [_fontSelector setSelected:YES forSegment:0];
+    _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+}
+
 
 - (void)refreshStatus{
     [self cleanOldPatch];
+    
     if (versionNumber == 13){
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:highSierraPatchPath];
-        if (latestPatchPresent) {
-            _currentFontName.stringValue = @"Lucida Grande";
-            _callToActionBtn.title = @"Switch to San Francisco";
-        } else {
-            _currentFontName.stringValue = @"San Francisco";
-            _callToActionBtn.title = @"Switch to Lucida Grande";
-        }
-        _callToActionBtn.enabled = YES;
     } else if (versionNumber == 12){
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:sierraPatchPath];
-        if (latestPatchPresent) {
-            _currentFontName.stringValue = @"Lucida Grande";
-            _callToActionBtn.title = @"Switch to San Francisco";
-        } else {
-            _currentFontName.stringValue = @"San Francisco";
-            _callToActionBtn.title = @"Switch to Lucida Grande";
-        }
-        _callToActionBtn.enabled = YES;
-    }
-    else if (versionNumber == 11){
+    } else if (versionNumber == 11){
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:elCapitanPatchPath];
-        if (latestPatchPresent) {
-            _currentFontName.stringValue = @"Lucida Grande";
-            _callToActionBtn.title = @"Switch to San Francisco";
-        } else {
-            _currentFontName.stringValue = @"San Francisco";
-            _callToActionBtn.title = @"Switch to Lucida Grande";
-        }
-        _callToActionBtn.enabled = YES;
-    }
-    else if (versionNumber == 10){
+    } else if (versionNumber == 10){
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:yosemitePatchPath];
-        if (latestPatchPresent) {
-            _currentFontName.stringValue = @"Lucida Grande";
-            _callToActionBtn.title = @"Switch to Helvetica Neue";
-        } else {
-            _currentFontName.stringValue = @"Helvetica Neue";
-            _callToActionBtn.title = @"Switch to Lucida Grande";
-        }
-        _callToActionBtn.enabled = YES;
     }
-    _currentFontName.hidden = NO;
-    _callToActionBtn.hidden = NO;
+    
+    if (latestPatchPresent) {
+        [self showLGPreview];
+    } else {
+        [self showSFPreview];
+    }
+    _callToActionBtn.enabled = YES;
 }
+
+- (IBAction)segmentedControlChanged:(NSSegmentedControl *)sender {
+    if (latestPatchPresent && sender.selectedSegment == 0) {
+        _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+        _callToActionBtn.hidden = NO;
+    } else if (latestPatchPresent && sender.selectedSegment == 1) {
+        _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+        _callToActionBtn.hidden = YES;
+    } else if (!latestPatchPresent && sender.selectedSegment == 0) {
+        _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+        _callToActionBtn.hidden = YES;
+    } else if (!latestPatchPresent && sender.selectedSegment == 1) {
+        _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+        _callToActionBtn.hidden = NO;
+    }
+}
+
 
 - (void)cleanOldPatch{
     BOOL highSierraPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:highSierraPatchPath];
@@ -256,7 +258,9 @@
             [self refreshStatus];
             _systemFontChangedLabel.hidden = NO;
             _callToActionBtn.hidden = YES;
-            
+            _fontSelector.enabled = NO;
+            _callToActionBtn.enabled = NO;
+
             // Present an alert informing user to log off their Mac
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"OK"];
@@ -288,12 +292,15 @@
         // Refresh main UI to reflect current system typeface setting
         // We do not use [self refreshStatus]; in this case because unless sleep is used, [self refreshStatus]; executes before the bash task completes, meaning the status won't be correctly refreshed
         
-        _currentFontName.stringValue = @"Lucida Grande";
-        [_currentFontName setFont:[NSFont fontWithName:@".Lucida Grande UI" size:19]];
-        [_previewParagraph setFont:[NSFont fontWithName:@".Lucida Grande UI" size:13]];
-        [_systemFontChangedLabel setFont:[NSFont fontWithName:@".Lucida Grande UI" size:11]];
+//        _currentFontName.stringValue = @"Lucida Grande";
+//        [_currentFontName setFont:[NSFont fontWithName:@".Lucida Grande UI" size:19]];
+//        [_previewParagraph setFont:[NSFont fontWithName:@".Lucida Grande UI" size:13]];
+//        [self refreshStatus];
+
         _systemFontChangedLabel.hidden = NO;
         _callToActionBtn.hidden = YES;
+        _fontSelector.enabled = NO;
+        _callToActionBtn.enabled = NO;
         
         // Present an alert informing user to restart their Mac
         NSAlert *alert = [[NSAlert alloc] init];

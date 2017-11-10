@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C23D0D41FB6256A0065B863 /* applyDiff_10_13.patch in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0D31FB625690065B863 /* applyDiff_10_13.patch */; };
+		3C23D0D71FB6278D0065B863 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D0D61FB6278C0065B863 /* MainWindowController.m */; };
+		3C23D0DA1FB62CDB0065B863 /* preview_lg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0D81FB62CDA0065B863 /* preview_lg.jpg */; };
+		3C23D0DB1FB62CDB0065B863 /* preview_sf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C23D0D91FB62CDA0065B863 /* preview_sf.jpg */; };
 		560E941A1D84F29C0073B846 /* applyDiff_10_10.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94171D84ECD40073B846 /* applyDiff_10_10.patch */; };
 		560E941B1D84F29C0073B846 /* applyDiff_10_11.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94181D84ECD40073B846 /* applyDiff_10_11.patch */; };
 		560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */ = {isa = PBXBuildFile; fileRef = 560E94191D84ECD40073B846 /* applyDiff_10_12.patch */; };
@@ -23,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		3C23D0D31FB625690065B863 /* applyDiff_10_13.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_13.patch; sourceTree = "<group>"; };
+		3C23D0D51FB6278C0065B863 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		3C23D0D61FB6278C0065B863 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		3C23D0D81FB62CDA0065B863 /* preview_lg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview_lg.jpg; sourceTree = "<group>"; };
+		3C23D0D91FB62CDA0065B863 /* preview_sf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview_sf.jpg; sourceTree = "<group>"; };
 		560E94171D84ECD40073B846 /* applyDiff_10_10.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_10.patch; sourceTree = "<group>"; };
 		560E94181D84ECD40073B846 /* applyDiff_10_11.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_11.patch; sourceTree = "<group>"; };
 		560E94191D84ECD40073B846 /* applyDiff_10_12.patch */ = {isa = PBXFileReference; lastKnownFileType = file; path = applyDiff_10_12.patch; sourceTree = "<group>"; };
@@ -90,12 +97,16 @@
 				560E94191D84ECD40073B846 /* applyDiff_10_12.patch */,
 				3C23D0D31FB625690065B863 /* applyDiff_10_13.patch */,
 				56BB4A581D84DE2100B4A7CE /* macOSLucidaGrande.icns */,
+				3C23D0D81FB62CDA0065B863 /* preview_lg.jpg */,
+				3C23D0D91FB62CDA0065B863 /* preview_sf.jpg */,
 				56939B441D84BEDA003D8A05 /* AppDelegate.h */,
 				56939B451D84BEDA003D8A05 /* AppDelegate.m */,
 				56B6C6ED1D850EE4000E99E3 /* NSWindow+AccessoryView.h */,
 				56B6C6EE1D850EE4000E99E3 /* NSWindow+AccessoryView.m */,
 				56DEB6691E0973180049D950 /* NSData+MD5.h */,
 				56DEB66A1E0973180049D950 /* NSData+MD5.m */,
+				3C23D0D51FB6278C0065B863 /* MainWindowController.h */,
+				3C23D0D61FB6278C0065B863 /* MainWindowController.m */,
 				56939B4A1D84BEDA003D8A05 /* Assets.xcassets */,
 				56939B4C1D84BEDA003D8A05 /* MainMenu.xib */,
 				56939B4F1D84BEDA003D8A05 /* Info.plist */,
@@ -172,6 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				560E941A1D84F29C0073B846 /* applyDiff_10_10.patch in Resources */,
+				3C23D0DB1FB62CDB0065B863 /* preview_sf.jpg in Resources */,
+				3C23D0DA1FB62CDB0065B863 /* preview_lg.jpg in Resources */,
 				560E941B1D84F29C0073B846 /* applyDiff_10_11.patch in Resources */,
 				560E941C1D84F29C0073B846 /* applyDiff_10_12.patch in Resources */,
 				56939B4B1D84BEDA003D8A05 /* Assets.xcassets in Resources */,
@@ -188,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C23D0D71FB6278D0065B863 /* MainWindowController.m in Sources */,
 				56B6C6EF1D850EE4000E99E3 /* NSWindow+AccessoryView.m in Sources */,
 				56939B491D84BEDA003D8A05 /* main.m in Sources */,
 				56939B461D84BEDA003D8A05 /* AppDelegate.m in Sources */,
