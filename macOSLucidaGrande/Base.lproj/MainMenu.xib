@@ -115,9 +115,10 @@
         </menu>
         <window title="macOSLucidaGrande" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="352"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <value key="minSize" type="size" width="480" height="352"/>
+            <value key="maxSize" type="size" width="480" height="352"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="352"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -130,7 +131,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="vVR-bn-BBz">
-                                    <rect key="frame" x="23" y="34" width="229" height="30"/>
+                                    <rect key="frame" x="25" y="14" width="204" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Preview and Apply" id="HKb-FT-JJm">
                                         <font key="font" metaFont="systemBold" size="23"/>
@@ -139,7 +140,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <segmentedControl verticalHuggingPriority="750" misplaced="YES" id="ANd-DD-Ysj">
-                                    <rect key="frame" x="22" y="9" width="228" height="23"/>
+                                    <rect key="frame" x="246" y="16" width="228" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="BUw-b0-3Aa">
                                         <font key="font" metaFont="system"/>
@@ -152,17 +153,6 @@
                                         <action selector="segmentedControlChanged:" target="Voe-Tx-rLC" id="GM2-G9-t1R"/>
                                     </connections>
                                 </segmentedControl>
-                                <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="HKN-7f-EFy">
-                                    <rect key="frame" x="369" y="12" width="105" height="25"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="roundTextured" title="Apply Font" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dY3-Q0-Ec4">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="useFont:" target="Voe-Tx-rLC" id="dWj-QZ-f6A"/>
-                                    </connections>
-                                </button>
                             </subviews>
                         </view>
                         <color key="borderColor" red="0.79469384517766495" green="0.79469384517766495" blue="0.79469384517766495" alpha="0.65780179794520544" colorSpace="custom" customColorSpace="sRGB"/>
@@ -193,12 +183,24 @@
                         </view>
                         <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.42256272010000001" colorSpace="custom" customColorSpace="displayP3"/>
                     </box>
+                    <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="HKN-7f-EFy">
+                        <rect key="frame" x="397" y="59" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="applyButton" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="dY3-Q0-Ec4">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="useFont:" target="Voe-Tx-rLC" id="dWj-QZ-f6A"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="-1182" y="176"/>
         </window>
     </objects>
     <resources>
+        <image name="applyButton" width="89" height="89"/>
         <image name="preview_sf" width="1420" height="800"/>
     </resources>
 </document>

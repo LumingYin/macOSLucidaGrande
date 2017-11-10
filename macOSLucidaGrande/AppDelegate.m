@@ -204,71 +204,36 @@
 
 - (IBAction)useFont:(id)sender {
     if (latestPatchPresent) {
+        NSString *messageText = @"System font set to San Francisco.";
+        NSString *informativeText = @"San Francisco will appear as the UI font in newly-opened applications. For San Francisco to be used system-wide, please restart your Mac.";
+        
         if (versionNumber == 13) {
-            // Removes the Lucida Grande font that poses as San Francisco
             [[NSFileManager defaultManager] removeItemAtPath:highSierraPatchPath error:nil];
-            // Refresh main UI to reflect current system typeface setting
-            [self refreshStatus];
-            _systemFontChangedLabel.hidden = NO;
-            _callToActionBtn.hidden = YES;
-            
-            // Present an alert informing user to log off their Mac
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"OK"];
-            [alert setMessageText:@"System font set to San Francisco."];
-            [alert setInformativeText:@"San Francisco will appear as the UI font in newly-opened applications. For San Francisco to be used system-wide, please restart your Mac."];
-            [alert setAlertStyle:NSAlertStyleWarning];
-            [alert runModal];
         } else if (versionNumber == 12) {
-            // Removes the Lucida Grande font that poses as San Francisco
             [[NSFileManager defaultManager] removeItemAtPath:sierraPatchPath error:nil];
-            // Refresh main UI to reflect current system typeface setting
-            [self refreshStatus];
-            // [_currentFontName setFont:[NSFont fontWithName:@".SFNSText-Medium" size:19]];
-            // [_previewParagraph setFont:[NSFont fontWithName:@".SFNSText-Medium" size:13]];
-            // [_systemFontChangedLabel setFont:[NSFont fontWithName:@".SFNSText-Medium" size:11]];
-            _systemFontChangedLabel.hidden = NO;
-            _callToActionBtn.hidden = YES;
-            
-            // Present an alert informing user to log off their Mac
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"OK"];
-            [alert setMessageText:@"System font set to San Francisco."];
-            [alert setInformativeText:@"San Francisco will appear as the UI font in newly-opened applications. For San Francisco to be used system-wide, please restart your Mac."];
-            [alert setAlertStyle:NSAlertStyleWarning];
-            [alert runModal];
         } else if (versionNumber == 11) {
             [[NSFileManager defaultManager] removeItemAtPath:elCapitanPatchPath error:nil];
-            // Refresh main UI to reflect current system typeface setting
-            [self refreshStatus];
-            _systemFontChangedLabel.hidden = NO;
-            _callToActionBtn.hidden = YES;
-            // Present an alert informing user to log off their Mac
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"OK"];
-            [alert setMessageText:@"System font set to San Francisco."];
-            [alert setInformativeText:@"San Francisco will appear as the UI font in newly-opened applications. For San Francisco to be used system-wide, please restart your Mac."];
-            [alert setAlertStyle:NSAlertStyleWarning];
-            [alert runModal];
         } else if (versionNumber == 10) {
-            // Removes the Lucida Grande font that poses as Helvetica Neue
             [[NSFileManager defaultManager] removeItemAtPath:yosemitePatchPath error:nil];
-            
-            // Refresh main UI to reflect current system typeface setting
-            [self refreshStatus];
-            _systemFontChangedLabel.hidden = NO;
-            _callToActionBtn.hidden = YES;
-            _fontSelector.enabled = NO;
-            _callToActionBtn.enabled = NO;
-
-            // Present an alert informing user to log off their Mac
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert addButtonWithTitle:@"OK"];
-            [alert setMessageText:@"System font set to Helvetica Neue."];
-            [alert setInformativeText:@"Helvetica Neue will appear as the UI font in newly-opened applications. For Helvetica Neue to be used system-wide, please restart your Mac."];
-            [alert setAlertStyle:NSAlertStyleWarning];
-            [alert runModal];
+            messageText = @"System font set to Helvetica Neue.";
+            informativeText = @"Helvetica Neue will appear as the UI font in newly-opened applications. For Helvetica Neue to be used system-wide, please restart your Mac.";
         }
+        
+        // Refresh main UI to reflect current system typeface setting
+        [self refreshStatus];
+        _systemFontChangedLabel.hidden = NO;
+        _callToActionBtn.hidden = YES;
+        _fontSelector.enabled = NO;
+        _callToActionBtn.enabled = NO;
+        
+        // Present an alert informing user to log off their Mac
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:messageText];
+        [alert setInformativeText:informativeText];
+        [alert setAlertStyle:NSAlertStyleWarning];
+        [alert runModal];
+
     }
     
     else {
