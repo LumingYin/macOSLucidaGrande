@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -118,19 +117,19 @@
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <value key="minSize" type="size" width="478" height="352"/>
             <value key="maxSize" type="size" width="478" height="352"/>
-            <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="478" height="352"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box misplaced="YES" boxType="custom" cornerRadius="4" title="Box" id="Z9o-Yp-Fco">
+                    <box boxType="custom" cornerRadius="4" title="Box" id="Z9o-Yp-Fco">
                         <rect key="frame" x="-8" y="264" width="496" height="114"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="0xQ-WB-m7u">
                             <rect key="frame" x="1" y="1" width="494" height="112"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <segmentedControl verticalHuggingPriority="750" misplaced="YES" id="ANd-DD-Ysj">
-                                    <rect key="frame" x="246" y="16" width="228" height="23"/>
+                                <segmentedControl verticalHuggingPriority="750" id="ANd-DD-Ysj">
+                                    <rect key="frame" x="245.5" y="16" width="229" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="BUw-b0-3Aa">
                                         <font key="font" metaFont="system"/>
@@ -143,7 +142,7 @@
                                         <action selector="segmentedControlChanged:" target="Voe-Tx-rLC" id="GM2-G9-t1R"/>
                                     </connections>
                                 </segmentedControl>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="yKf-GR-0N6">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yKf-GR-0N6">
                                     <rect key="frame" x="53" y="12" width="176" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="System Font" id="IdS-x4-rtp">
@@ -152,7 +151,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KiF-Lb-0rp">
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="KiF-Lb-0rp">
                                     <rect key="frame" x="16" y="12" width="38" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="text" id="4G4-E3-b6Q"/>
@@ -160,25 +159,25 @@
                             </subviews>
                         </view>
                         <color key="borderColor" red="0.79469384517766495" green="0.79469384517766495" blue="0.79469384517766495" alpha="0.65780179794520544" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="fillColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="fillColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </box>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="S4h-TO-lqw">
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="S4h-TO-lqw">
                         <rect key="frame" x="0.0" y="-6" width="480" height="272"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="preview_sf" id="rBv-U3-TUM"/>
                     </imageView>
-                    <box hidden="YES" misplaced="YES" boxType="custom" borderWidth="0.0" cornerRadius="12" id="eMk-FY-sj5">
+                    <box hidden="YES" boxType="custom" borderWidth="0.0" cornerRadius="12" id="eMk-FY-sj5">
                         <rect key="frame" x="203" y="59" width="237" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="WM6-8c-oON">
                             <rect key="frame" x="0.0" y="0.0" width="237" height="34"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="HnL-ab-ZuH">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HnL-ab-ZuH">
                                     <rect key="frame" x="-2" y="2" width="241" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Font change takes effect after restart." id="PJU-pD-zAv">
-                                        <font key="font" metaFont="system" size="11"/>
+                                        <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -187,7 +186,7 @@
                         </view>
                         <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.42256272010000001" colorSpace="custom" customColorSpace="displayP3"/>
                     </box>
-                    <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="HKN-7f-EFy">
+                    <button hidden="YES" verticalHuggingPriority="750" id="HKN-7f-EFy">
                         <rect key="frame" x="397" y="59" width="37" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="applyButton" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="dY3-Q0-Ec4">

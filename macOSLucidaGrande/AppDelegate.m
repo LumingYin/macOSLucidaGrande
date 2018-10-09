@@ -42,7 +42,7 @@
     NSData *nsData = [NSData dataWithContentsOfFile:sierraPatchPath];
     hashSum = [nsData MD5];
     
-    //  Checks if system version is newer than macOS 10.13. If not, alerts the user about incompatibility and exits.
+    //  Checks if system version is newer than macOS 10.14. If not, alerts the user about incompatibility and exits.
     NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
     NSString* minor = [NSString stringWithFormat:@"%ld", (long)version.minorVersion];
     versionNumber = [minor intValue];
@@ -52,14 +52,14 @@
     if (versionNumber > 10) {
         [_fontChangedTypeLabel setFont:[NSFont systemFontOfSize:11 weight:NSFontWeightMedium]];
     }
-    if (versionNumber > 13) {
+    if (versionNumber > 14) {
         // Alerts user about incompatibility
         self.fontSelector.enabled = NO;
         self.callToActionBtn.enabled = NO;
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Check for Updates"];
         [alert setMessageText:@"Incompatible with your macOS installation."];
-        [alert setInformativeText:@"This version of LucidaGrandeSierra only supports macOS High Sierra, macOS Sierra, OS X El Capitan and OS X Yosemite."];
+        [alert setInformativeText:@"This version of LucidaGrandeSierra only supports macOS Mojave, macOS High Sierra, macOS Sierra, OS X El Capitan and OS X Yosemite."];
         [alert setAlertStyle:NSAlertStyleWarning];
         [alert runModal];
         // Checks for update
