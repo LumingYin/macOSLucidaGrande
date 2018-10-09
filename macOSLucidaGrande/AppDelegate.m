@@ -13,11 +13,13 @@
 @interface AppDelegate () {
     int versionNumber;
     BOOL latestPatchPresent;
-    NSString *highSierraPatchPath;
+    NSString *latestKnownMacOSPatchPath;
     NSString *sierraPatchPath;
     NSString *elCapitanPatchPath;
     NSString *yosemitePatchPath;
     NSString *hashSum;
+    NSString *knownLatestPatchableLGFontHashSum;
+    NSString *knownSystemWideLGFontPath;
     BOOL alreadyCheckedUpdate;
 }
 @property (weak) IBOutlet NSView *_mainView;
@@ -32,15 +34,20 @@
 @synthesize window;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    highSierraPatchPath = @"/Library/Fonts/LucidaGrande_modsysfonths.ttc";
+    latestKnownMacOSPatchPath = @"/Library/Fonts/LucidaGrande_modsysfonths.ttc";
     sierraPatchPath = @"/Library/Fonts/LGUI_Regular_mod.TTF";
     elCapitanPatchPath = @"/Library/Fonts/LucidaGrande_modsysfontelc.ttc";
     yosemitePatchPath = @"/Library/Fonts/LucidaGrande_modsysfontyos.ttc";
+    knownSystemWideLGFontPath = @"/System/Library/Fonts/LucidaGrande.ttc";
+    knownLatestPatchableLGFontHashSum = @"8fd8b90cfab02bae6f905d2cea334962";
+    
     [self.window.contentView setWantsLayer:YES];
     self.window.titlebarAppearsTransparent = YES;
     
     NSData *nsData = [NSData dataWithContentsOfFile:sierraPatchPath];
     hashSum = [nsData MD5];
+    
+    NSString *calculatedLGFontHashSum = [[NSData dataWithContentsOfFile:knownSystemWideLGFontPath] MD5];
     
     //  Checks if system version is newer than macOS 10.14. If not, alerts the user about incompatibility and exits.
     NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
@@ -52,7 +59,7 @@
     if (versionNumber > 10) {
         [_fontChangedTypeLabel setFont:[NSFont systemFontOfSize:11 weight:NSFontWeightMedium]];
     }
-    if (versionNumber > 14) {
+    if (versionNumber > 14 && ![calculatedLGFontHashSum isEqualToString:knownLatestPatchableLGFontHashSum]) {
         // Alerts user about incompatibility
         self.fontSelector.enabled = NO;
         self.callToActionBtn.enabled = NO;
@@ -91,13 +98,13 @@
 - (void)refreshStatus{
     [self cleanOldPatch];
     
-    if (versionNumber == 13){
-        latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:highSierraPatchPath];
-    } else if (versionNumber == 12){
+    if (versionNumber >= 13) {
+        latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:latestKnownMacOSPatchPath];
+    } else if (versionNumber == 12) {
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:sierraPatchPath];
-    } else if (versionNumber == 11){
+    } else if (versionNumber == 11) {
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:elCapitanPatchPath];
-    } else if (versionNumber == 10){
+    } else if (versionNumber == 10) {
         latestPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:yosemitePatchPath];
     }
     
@@ -127,11 +134,11 @@
 
 
 - (void)cleanOldPatch{
-    BOOL highSierraPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:highSierraPatchPath];
+    BOOL highSierraPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:latestKnownMacOSPatchPath];
     BOOL sierraPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:sierraPatchPath];
     BOOL elCapitanPatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:elCapitanPatchPath];
     BOOL yosemitePatchPresent = [[NSFileManager defaultManager] fileExistsAtPath:yosemitePatchPath];
-    if (versionNumber == 13){
+    if (versionNumber >= 13){
         if (sierraPatchPresent) {
             [[NSFileManager defaultManager] removeItemAtPath:sierraPatchPath error:nil];
         }
@@ -160,7 +167,7 @@
 
         }
         if (highSierraPatchPresent) {
-            [[NSFileManager defaultManager] removeItemAtPath:highSierraPatchPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:latestKnownMacOSPatchPath error:nil];
         }
         if (elCapitanPatchPresent) {
             [[NSFileManager defaultManager] removeItemAtPath:elCapitanPatchPath error:nil];
@@ -170,7 +177,7 @@
         }
     } else if (versionNumber == 11) {
         if (highSierraPatchPresent) {
-            [[NSFileManager defaultManager] removeItemAtPath:highSierraPatchPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:latestKnownMacOSPatchPath error:nil];
         }
         if (sierraPatchPresent) {
             [[NSFileManager defaultManager] removeItemAtPath:sierraPatchPath error:nil];
@@ -180,7 +187,7 @@
         }
     } else if (versionNumber == 10) {
         if (highSierraPatchPresent) {
-            [[NSFileManager defaultManager] removeItemAtPath:highSierraPatchPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:latestKnownMacOSPatchPath error:nil];
         }
         if (sierraPatchPresent) {
             [[NSFileManager defaultManager] removeItemAtPath:sierraPatchPath error:nil];
@@ -205,8 +212,8 @@
         NSString *messageText = @"System font set to San Francisco.";
         NSString *informativeText = @"San Francisco will appear as the UI font in newly-opened applications. For San Francisco to be used system-wide, please restart your Mac.";
         
-        if (versionNumber == 13) {
-            [[NSFileManager defaultManager] removeItemAtPath:highSierraPatchPath error:nil];
+        if (versionNumber >= 13) {
+            [[NSFileManager defaultManager] removeItemAtPath:latestKnownMacOSPatchPath error:nil];
         } else if (versionNumber == 12) {
             [[NSFileManager defaultManager] removeItemAtPath:sierraPatchPath error:nil];
         } else if (versionNumber == 11) {
@@ -236,13 +243,18 @@
     
     else {
         // Fetches the URL of Lucida Grande font that poses San Francisco
-        NSString *nameOfPatchFile = [NSString stringWithFormat:@"applyDiff_10_%d", versionNumber];
+        NSString *nameOfPatchFile;
+        if (versionNumber > 13) {
+            nameOfPatchFile = [NSString stringWithFormat:@"applyDiff_10_%d", versionNumber];
+        } else {
+            nameOfPatchFile = @"applyDiff_10_13";
+        }
         NSString *diffPath = [[NSBundle mainBundle] pathForResource:nameOfPatchFile ofType:@"patch"];
         // Copies the Lucida Grande font over to the desired installation location
         NSTask *task = [[NSTask alloc] init];
         task.launchPath = @"/usr/bin/bspatch";
-        if (versionNumber == 13) {
-            task.arguments = @[@"/System/Library/Fonts/LucidaGrande.ttc", highSierraPatchPath, diffPath];
+        if (versionNumber >= 13) {
+            task.arguments = @[@"/System/Library/Fonts/LucidaGrande.ttc", latestKnownMacOSPatchPath, diffPath];
         } else if (versionNumber == 12) {
         task.arguments = @[@"/System/Library/Fonts/LucidaGrande.ttc", sierraPatchPath, diffPath];
         } else if (versionNumber == 11) {
