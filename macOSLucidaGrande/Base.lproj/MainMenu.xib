@@ -184,7 +184,7 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.42256272010000001" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.91133912852112675" colorSpace="custom" customColorSpace="displayP3"/>
                     </box>
                     <button hidden="YES" verticalHuggingPriority="750" id="HKN-7f-EFy">
                         <rect key="frame" x="397" y="59" width="37" height="37"/>

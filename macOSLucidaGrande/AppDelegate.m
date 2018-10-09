@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "NSData+MD5.h"
 
+typedef NS_ENUM(NSUInteger, FontType) {
+    FontTypeLucidaGrande,
+    FontTypeSF,
+};
 
 @interface AppDelegate () {
     int versionNumber;
@@ -80,20 +84,52 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self checkForUpdates];
     alreadyCheckedUpdate = YES;
+    [self.window addObserver:self forKeyPath:@"effectiveAppearance" options:NSKeyValueObservingOptionNew context:nil];
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"effectiveAppearance"] && _fontSelector != nil) {
+        [self segmentedControlChanged:_fontSelector];
+    }
+}
+
 
 - (void)showLGPreview {
     [_fontSelector setSelected:NO forSegment:0];
     [_fontSelector setSelected:YES forSegment:1];
-    _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+    [self updatePreviewImage:FontTypeLucidaGrande];
 }
 
 - (void)showSFPreview {
     [_fontSelector setSelected:NO forSegment:1];
     [_fontSelector setSelected:YES forSegment:0];
-    _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+    [self updatePreviewImage:FontTypeSF];
 }
 
+- (void)updatePreviewImage:(FontType)fontType {
+    if (@available(macOS 10.14, *)) {
+        NSAppearanceName name = [self.window.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]];
+        if (name == NSAppearanceNameDarkAqua) {
+            if (fontType == FontTypeLucidaGrande) {
+                _previewImage.image = [NSImage imageNamed:@"preview_modern_lg_dark"];
+            } else if (fontType == FontTypeSF) {
+                _previewImage.image = [NSImage imageNamed:@"preview_modern_sf_dark"];
+            }
+        } else {
+            if (fontType == FontTypeLucidaGrande) {
+                _previewImage.image = [NSImage imageNamed:@"preview_modern_lg_light"];
+            } else if (fontType == FontTypeSF) {
+                _previewImage.image = [NSImage imageNamed:@"preview_modern_sf_light"];
+            }
+        }
+    } else {
+        if (fontType == FontTypeLucidaGrande) {
+            _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+        } else if (fontType == FontTypeSF) {
+            _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+        }
+    }
+}
 
 - (void)refreshStatus{
     [self cleanOldPatch];
@@ -118,16 +154,16 @@
 
 - (IBAction)segmentedControlChanged:(NSSegmentedControl *)sender {
     if (latestPatchPresent && sender.selectedSegment == 0) {
-        _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+        [self updatePreviewImage:FontTypeSF];
         _callToActionBtn.hidden = NO;
     } else if (latestPatchPresent && sender.selectedSegment == 1) {
-        _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+        [self updatePreviewImage:FontTypeLucidaGrande];
         _callToActionBtn.hidden = YES;
     } else if (!latestPatchPresent && sender.selectedSegment == 0) {
-        _previewImage.image = [NSImage imageNamed:@"preview_sf"];
+        [self updatePreviewImage:FontTypeSF];
         _callToActionBtn.hidden = YES;
     } else if (!latestPatchPresent && sender.selectedSegment == 1) {
-        _previewImage.image = [NSImage imageNamed:@"preview_lg"];
+        [self updatePreviewImage:FontTypeLucidaGrande];
         _callToActionBtn.hidden = NO;
     }
 }
@@ -245,9 +281,9 @@
         // Fetches the URL of Lucida Grande font that poses San Francisco
         NSString *nameOfPatchFile;
         if (versionNumber > 13) {
-            nameOfPatchFile = [NSString stringWithFormat:@"applyDiff_10_%d", versionNumber];
+            nameOfPatchFile = @"applyDiff_modern";
         } else {
-            nameOfPatchFile = @"applyDiff_10_13";
+            nameOfPatchFile = [NSString stringWithFormat:@"applyDiff_10_%d", versionNumber];
         }
         NSString *diffPath = [[NSBundle mainBundle] pathForResource:nameOfPatchFile ofType:@"patch"];
         // Copies the Lucida Grande font over to the desired installation location
