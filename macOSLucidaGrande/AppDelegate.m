@@ -63,7 +63,7 @@
         [alert setAlertStyle:NSAlertStyleWarning];
         [alert runModal];
         // Checks for update
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"http://luming.ga/app/lucidagrande/index.html"]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"https://github.com/LumingYin/macOSLucidaGrande/releases"]];
         [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.5];
     } else {
         [self refreshStatus];
@@ -280,7 +280,7 @@
 
 - (void)checkForUpdates {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSURL *URL = [NSURL URLWithString:@"http://luming.ga/app/lucidagrande/latestBuild.txt"];
+    NSURL *URL = [NSURL URLWithString:@"https://raw.githubusercontent.com/LumingYin/macOSLucidaGrande/master/macOSLucidaGrande/latestBuild.txt"];
     NSError *error;
     NSString *latestBuildNumberRaw = [[NSString alloc]
                                       initWithContentsOfURL:URL
@@ -307,7 +307,7 @@
         [alert setInformativeText:messageText];
         [alert setAlertStyle:NSAlertStyleWarning];
         [alert runModal];
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"http://luming.ga/app/lucidagrande/index.html"]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString: @"https://github.com/LumingYin/macOSLucidaGrande/releases"]];
     } else if (alreadyCheckedUpdate) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
